@@ -1,0 +1,88 @@
+.cv-default{
+    .overlay {
+        position: static;
+        padding-bottom: 3%;
+        padding-top: 3%;
+        padding-left: 7%;
+        background-color: black;
+        color: white
+    }
+    
+    .summaryBox{
+        padding-left: 7%;
+        border: solid 1px black;
+    }
+    
+    .qualificationsList{
+        padding-left: 7%;
+        border: solid 1px black;
+    }
+    
+    .spacer{
+        position: static;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        padding-left: 7%;
+        background-color: black;
+        color: white
+    }
+}
+
+.cv-dark{
+    background-color: #0d0d26;
+    color: black;
+    .overlay {
+        position: static;
+        top: 0;
+        left: 0;
+        padding-bottom: 3%;
+        padding-top: 3%;
+        padding-left: 7%;
+        color: wheat;
+        background-color: #0d0d26;
+    }
+    .circle{
+        position:absolute;
+        top:10%;
+        left: 89%;
+        width: 120px;
+        height: 120px;
+        background: wheat;
+        border-radius: 50%;
+    }
+    .smallcircle{
+        position:absolute;
+        top:5%;
+        left:92%;
+        width: 80px;
+        height: 80px;
+        background: wheat;
+        border-radius: 50%;
+    }
+    .summaryBox{
+        border-radius: 3cm;
+        padding-left: 7%;
+        border: solid 1px black;
+        color: black;
+        background-color: wheat;
+    }
+    
+    .qualificationsList{
+        border-radius: 3cm;
+        margin-left: 3%;
+        margin-right: 3%;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 5%;
+        padding-right: 5%;
+        color: black;
+        background-color: wheat;
+    }
+    .spacer{
+        position: static;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        padding-left: 7%;
+        color: wheat
+    }
+}
