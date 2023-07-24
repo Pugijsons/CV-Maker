@@ -1,6 +1,8 @@
 "use client";
+import { TextField } from '@mui/material';
 import './page.css';
 import './styles.css';
+import Button from '@mui/material/Button';
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { useState, useRef } from "react";
@@ -113,164 +115,123 @@ export default function Home() {
         <form onSubmit={handleSubmit}>
           <h2 className='title'>Summary:</h2>
           <ul className='summaryForm'>
-          <li><label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
+          <li><TextField id="outlined-basic" label="Name" variant="outlined" size = "small" type="text" margin = "dense"
             name="name"
             value={form.name}
             onChange={handleChange}
-            required
-          /></li>
+            required/>
+            </li>
           
-          <li><label htmlFor="objective">Objective:</label>
-          <input
-            type="text"
-            id="objective"
+          <li><TextField id="outlined" label="Objective" variant="outlined" size = "small" type="text" margin = "dense" multiline= {true}
             name="objective"
             value={form.objective}
             onChange={handleChange}
-            required
-          /></li>
+            required/></li>
 
-          <li><label htmlFor="email">E-Mail:</label>
-          <input
-            type="email"
-            id="email"
+          <li>
+          <TextField id="outlined" label="E-Mail" variant="outlined" size = "small" type="email" margin = "dense"
             name="email"
             value={form.email}
             onChange={handleChange}
-            required
-          /></li>
+            required/></li>
 
-          <li><label htmlFor="phone">Phone Number:</label>
-          <input
-            type="text"
-            id="phone"
+          <li><TextField id="outlined" label="Phone Number" variant="outlined" size = "small" type="text" margin = "dense"
             name="phone"
             value={form.phone}
             onChange={handleChange}
-            required
-          /></li>
+            required/>
+            </li>
 
-          <li><label htmlFor="website">Website:</label>
-          <input
-            type="text"
-            id="website"
+          <li><TextField id="outlined" label="Website" variant="outlined" size = "small" type="text" margin = "dense"
             name="website"
             value={form.website}
-            onChange={handleChange}
-            required
-          /></li>
+            onChange={handleChange}/>
+          </li>
 
-          <li><label htmlFor="address">Address:</label>
-          <input
-            type="text"
-            id="address"
+          <li><TextField id="outlined" label="Address" variant="outlined" size = "small" type="text" margin = "dense"
             name="address"
             value={form.address}
-            onChange={handleChange}
-            required
-          /></li>
+            onChange={handleChange}/>
+            </li>
           </ul>
           
           <h2 className='title'>Job Experiences:</h2>
           {jobExperiences.map((experience, index) => (
             <div className='jobList' key={index}>
               <ul className='jobForm'>
-              <li><label htmlFor={`company-${index}`}>Company:</label>
-              <input
-                type="text"
-                id={`company-${index}`}
-                name="company"
-                value={experience.company}
-                onChange={(e) => handleJobExperienceChange(index, e)}
-                required
-              /></li>
+              <li><TextField id="outlined" label="Company" variant="outlined" size = "small" type="text" margin = "dense"
+              name="company"
+              value={experience.company}
+              onChange={(e) => handleJobExperienceChange(index, e)}
+              required
+            />
+            </li>
 
-              <li><label htmlFor={`position-${index}`}>Position:</label>
-              <input
-                type="text"
-                id={`position-${index}`}
-                name="position"
-                value={experience.position}
-                onChange={(e) => handleJobExperienceChange(index, e)}
-                required
-              /></li>
+            <li><TextField id="outlined" label="Position" variant="outlined" size = "small" type="text" margin = "dense"
+              name="position"
+              value={experience.position}
+              onChange={(e) => handleJobExperienceChange(index, e)}
+              required
+            />
+            </li>
 
-              <li><label htmlFor={`description-${index}`}>Description:</label>
-              <input
-                type="text"
-                id={`description-${index}`}
-                name="description"
-                value={experience.description}
-                onChange={(e) => handleJobExperienceChange(index, e)}
-                required
-              /></li>
+            <li><TextField id="outlined" label="Description" variant="outlined" size = "small" type="text" margin = "dense" multiline = {true}
+              name="description"
+              value={experience.description}
+              onChange={(e) => handleJobExperienceChange(index, e)}
+              required
+            />
+            </li>
 
-              <li><label htmlFor={`startYear-${index}`}>Start Year:</label>
-              <input
-                type="text"
-                id={`startYear-${index}`}
-                name="startYear"
-                value={experience.startYear}
-                onChange={(e) => handleJobExperienceChange(index, e)}
-                required
-              /></li>
+              <li><TextField id="outlined" label="Starting year" variant="outlined" size = "small" type="text" margin = "dense"
+              name="startYear"
+              value={experience.startYear}
+              onChange={(e) => handleJobExperienceChange(index, e)}
+              required
+            /></li>
 
-              <li><label htmlFor={`endYear-${index}`}>End Year:</label>
-              <input
-                type="text"
-                id={`endYear-${index}`}
-                name="endYear"
-                value={experience.endYear}
-                onChange={(e) => handleJobExperienceChange(index, e)}
-                required
-              /></li>
+              <li><TextField id="outlined" label="End year" variant="outlined" size = "small" type="text" margin = "dense"
+              name="endYear"
+              value={experience.endYear}
+              onChange={(e) => handleJobExperienceChange(index, e)}
+              required
+            /></li>
               </ul>
-              <button type="button" onClick={() => handleRemoveJobExperience(index)}>Remove</button>
+              <Button variant = 'contained' size = 'small' onClick={() => handleRemoveJobExperience(index)}>Remove</Button>
+              <Button variant = 'contained' size = 'small' onClick={handleAddJobExperience}>Add Job Experience</Button>
             </div>
           ))}
-          <button type="button" onClick={handleAddJobExperience}>Add Job Experience</button>
+          
 
           <h2 className='title'>Education:</h2>
           {educations.map((education, index) => (
             <div key={index}>
               <ul className='educationForm'>
-              <li><label htmlFor={`school-${index}`}>School:</label>
-              <input
-                type="text"
-                id={`school-${index}`}
-                name="school"
-                value={education.school}
-                onChange={(e) => handleEducationChange(index, e)}
-                required
-              /></li>
+              <li><TextField id="outlined" label="School" variant="outlined" size = "small" type="text" margin = "dense"
+              name="school"
+              value={education.school}
+              onChange={(e) => handleEducationChange(index, e)}
+              required
+            /></li>
 
-              <li><label htmlFor={`degree-${index}`}>Degree:</label>
-              <input
-                type="text"
-                id={`degree-${index}`}
-                name="degree"
-                value={education.degree}
-                onChange={(e) => handleEducationChange(index, e)}
-                required
-              /></li>
+            <li><TextField id="outlined" label="Degree" variant="outlined" size = "small" type="text" margin = "dense"
+              name="degree"
+              value={education.degree}
+              onChange={(e) => handleEducationChange(index, e)}
+              required
+            /></li>
 
-              <li><label htmlFor={`graduationYear-${index}`}>Graduation Year:</label>
-              <input
-                type="text"
-                id={`graduationYear-${index}`}
-                name="graduationYear"
-                value={education.graduationYear}
-                onChange={(e) => handleEducationChange(index, e)}
-                required
-              /></li>
+            <li><TextField id="outlined" label="Year graduated" variant="outlined" size = "small" type="text" margin = "dense"
+              name="graduationYear"
+              value={education.graduationYear}
+              onChange={(e) => handleEducationChange(index, e)}
+              required
+            /></li>
               </ul>
-              <button type="button" onClick={() => handleRemoveEducation(index)}>Remove</button>
+              <Button variant = 'contained' size = 'small' onClick={() => handleRemoveEducation(index)}>Remove</Button>
+              <Button variant = 'contained' size = 'small' onClick={handleAddEducation}>Add Education</Button>
             </div>
           ))}
-          <button type="button" onClick={handleAddEducation}>Add Education</button>
         </form></div>
         
       <div className={`cv-preview ${selectedStyle}`} ref={cvRef}>
@@ -320,9 +281,9 @@ export default function Home() {
         ))}
       </div>
       <div className='buttons'>
-        <button onClick={handleSubmit}>Download PDF</button>
-        <button onClick={() => handleStyleChange("cv-default")}>Default Style</button>
-        <button onClick={() => handleStyleChange("cv-dark")}>Dark Mode</button>
+        <Button variant = 'contained' size = 'small' onClick={handleSubmit}>Download PDF</Button>
+        <Button variant = 'contained' size = 'small' onClick={() => handleStyleChange("cv-default")}>Default Style</Button>
+        <Button variant = 'contained' size = 'small' onClick={() => handleStyleChange("cv-dark")}>Dark Mode</Button>
       </div>
     </div>
   );
